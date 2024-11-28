@@ -2,4 +2,4 @@ from django.shortcuts import render, redirect
 
 # Create your views here.
 def home(request):
-    return render(request, 'main/index.html', {'page': 'home'})
+    return render(request, 'main/index.html')
