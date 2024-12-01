@@ -2,12 +2,39 @@
 {% block title %} Home {% endblock %}
 
 {% block content %}
-<div class="p-6 my-auto max-w-sm mx-auto bg-white rounded-xl shadow-md space-y-4">
-    <h1 class="text-2xl font-bold text-blue-500">Hello, Tailwind CSS!</h1>
-    <p>Welcome to your styled Django application.</p>
-</div>
-<div class="max-w-sm  mt-5 text-center mx-auto bg-black text-white">
-    <p class="line-through">Rs.1000</p>
-</div>
+    <div class="mt-6 px-6 py-12 bg-gray-100 rounded-xl">
+        <h2 class="mb-12 text-2xl text-center font-mono">Newest items</h2>
 
+        <div class="grid grid-cols-5 gap-6">
+            {% for i in items %}
+                <div>
+                    <a href="" class="text-center">
+                        <div>
+                            <img src="{{i.image.url}}" alt="{{i.category}}" class="rounded-t-xl w-full h-auto">
+                        </div>
+                        <div class="p-6 bg-white rounded-b-xl">
+                            <h2 class="text-2xl">{{i.name}}</h2>
+                            <p class="text-gray-500ay">Price: {{i.price}}</p>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="mt-6 px-6 py-12 bg-gray-100 rounded-xl">
+        <h2 class="mb-12 text-2xl text-center font-mono">Ctegories</h2>
+
+        <div class="grid grid-cols-3 gap-6">
+            {% for i in categories %}
+                <div>
+                    <a href="" class="text-center">
+                        <div class="p-6 bg-white rounded-b-xl">
+                            <h2 class="text-2xl">{{i.name}}</h2>
+                            <p class="text-gray-500">{{i.items.count}} items</p>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
 {% endblock %}
