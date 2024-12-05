@@ -17,7 +17,17 @@
                     {{item.description}}
                 </p>
             {% endif %}
+            {% if item.created_by == request.user %}
+            <div class="mt-6 p-6 bg-white rounded-xl w-1/2 mx-auto">
+                <p class=" text-center">This is your item!</p>
+                <div class=" flex justify-evenly">
+                <a href="{% url 'item:edit' item.pk %}" class="inline-block mt-6 px-6 py-3 text-lg font-semibold bg-green-500 text-white rounded-xl hover:bg-green-700">Edit</a>
+                <a href="{% url 'item:delete' item.pk %}" class="inline-block mt-6 px-6 py-3 text-lg font-semibold bg-red-500 text-white rounded-xl hover:bg-red-700">Delete</a>
+                </div>
+            </div>
+            {% else %}
             <a href="" class="inline-block mt-6 px-6 py-3 text-lg font-semibold bg-green-500 text-white rounded-xl hover:bg-green-700">Contact seller</a>
+            {% endif %}
         </div>
     </div>
     <div class="mt-6 px-6 py-12 bg-gray-100 rounded-xl">

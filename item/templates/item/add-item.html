@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %} Add Item {% endblock %}
+
+{% block content %}
+<h1 class="mb-6 text-3xl">{{title }}</h1>
+<form method="post" action="." enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="space-y-4">
+        {{form.as_p}}
+    </div>
+    {% if form.errors or form.non_field_errors %}
+            <div class="mb-3 p-6 bg-red-300 rounded-xl border border-gray-400">
+                {% for field in form %}
+                    {{field.errors}}
+                {% endfor %}
+                {{form.non_field_errors}}
+            </div>
+    {% endif %}
+    <button class="px-8 py-3 mt-5 font-semibold bg-sky-400 text-white rounded-xl hover:bg-sky-600">Add item</button>
+</form>
+{% endblock %}
+
+
+
