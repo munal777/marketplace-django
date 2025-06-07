@@ -1,4 +1,4 @@
 static/CACHE
 **/__pycache__/
 **/migrations/
-./media/
+/media/
