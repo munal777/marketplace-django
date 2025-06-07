@@ -3,7 +3,7 @@
 
 {% block content %}
     <div class="mt-6 px-6 py-12 bg-gray-100 rounded-xl">
-        <h2 class="mb-12 text-2xl text-center font-mono">My items</h2>
+        <h2 class="mb-12 text-2xl text-center font-mono">{{ username }} - items</h2>
 
         <div class="grid grid-cols-5 gap-6">
             {% for i in items %}
@@ -21,20 +21,4 @@
             {% endfor %}
         </div>
     </div>
-    <!-- <div class="mt-6 px-6 py-12 bg-gray-100 rounded-xl">
-        <h2 class="mb-12 text-2xl text-center font-mono">Categories</h2>
-
-        <div class="grid grid-cols-3 gap-6">
-            {% for i in categories %}
-                <div>
-                    <a href="" class="text-center">
-                        <div class="p-6 bg-white rounded-b-xl">
-                            <h2 class="text-2xl">{{i.name}}</h2>
-                            <p class="text-gray-500">{{i.items.count}} items</p>
-                        </div>
-                    </a>
-                </div>
-            {% endfor %}
-        </div>
-    </div> -->
 {% endblock %}
